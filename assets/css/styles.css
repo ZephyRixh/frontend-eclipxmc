@@ -539,7 +539,6 @@ section { padding: 40px 5vw; position: relative; }
 @media (max-width: 768px) {
   .hero {
     background: url(../images/background.jpg) center/cover no-repeat;
-  background-position: calc(50% - 55px) center;
   }
 }
 @media (max-width: 480px) {
@@ -2780,8 +2779,6 @@ section { padding: 40px 5vw; position: relative; }
   justify-content: space-between;
   align-items: center;
   pointer-events: none;
-  transform: translateZ(0);
-  will-change: transform;
 }
 
 .mobile-nav-toggle {
