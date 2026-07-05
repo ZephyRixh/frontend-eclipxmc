@@ -2243,7 +2243,7 @@ section { padding: 40px 5vw; position: relative; }
   gap: 3vw;
 }
 .footer-nav ul {
-  width: 100%;
+  flex: 1;
   display: grid;
   gap: 10px;
   list-style: none;
@@ -2779,6 +2779,7 @@ section { padding: 40px 5vw; position: relative; }
   justify-content: space-between;
   align-items: center;
   pointer-events: none;
+  will-change: transform;
 }
 
 .mobile-nav-toggle {

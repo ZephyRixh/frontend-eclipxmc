@@ -161,11 +161,12 @@ const Router = {
   },
 
   navigate(path) {
-    const cleanPath = path.replace(/^\/?index\.html/, '') || '/';
+    const cleanPath = path.replace(/\/?index\.html/, '').replace(/\.html$/, '') || '/';
 
-    if (window.location.pathname === cleanPath) return;
+    const current = (window.location.pathname).replace(/\.html$/, '');
+    if (current === cleanPath) return;
 
-    const currentRoot = window.location.pathname.split('/')[1] || '';
+    const currentRoot = current.split('/')[1] || '';
     const targetRoot = cleanPath.split('/')[1] || '';
 
     if (currentRoot !== targetRoot) {
@@ -178,7 +179,7 @@ const Router = {
   },
 
   handleRoute(path, hash = null) {
-    // Normalize path (remove trailing slash)
+    path = path.replace(/\.html$/, '');
     if (path.length > 1 && path.endsWith('/')) path = path.slice(0, -1);
     if (path.endsWith('index.html')) path = '/';
 
