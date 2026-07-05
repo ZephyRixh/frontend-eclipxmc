@@ -829,8 +829,31 @@ document.addEventListener('DOMContentLoaded', () => {
   initCurrencySwitcher();
   initPlayerCount();
   initMobileSidebar();
+  initMobileNavFix();
   updateAllDisplayedPrices();
 });
+
+function initMobileNavFix() {
+  const wrapper = document.querySelector('.mobile-nav-wrapper');
+  if (!wrapper) return;
+  wrapper.style.setProperty('position', 'fixed', 'important');
+  wrapper.style.setProperty('top', '0');
+  wrapper.style.setProperty('left', '0');
+  wrapper.style.setProperty('right', '0');
+  wrapper.style.setProperty('z-index', '1001');
+  wrapper.style.setProperty('pointer-events', 'none');
+
+  const footerNav = document.querySelector('.footer-nav');
+  if (footerNav) {
+    footerNav.style.setProperty('display', 'flex', 'important');
+    Array.from(footerNav.children).forEach(child => {
+      if (child.matches && child.matches('ul')) {
+        child.style.setProperty('flex', '1', 'important');
+        child.style.setProperty('min-width', '0', 'important');
+      }
+    });
+  }
+}
 
 
 // STORE PREVIEW TABS
