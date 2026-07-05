@@ -55,7 +55,7 @@
 /* ━━ RESET ━━ */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 button, a, .btn-primary, .btn-outline, .candy-btn, .rg-button, .ip-copy, .faq-question, .sidebar-link, .spotlight-link, input, select, textarea, [role="button"] { touch-action: manipulation; }
-html{scroll-behavior:smooth;overflow-y:scroll}
+html{scroll-behavior:smooth;overflow-y:scroll;overflow-x:hidden}
 
 body {
   background: var(--bg);
@@ -63,7 +63,6 @@ body {
   font-family: var(--font);
   font-size: 14px;
   line-height: 1.7;
-  overflow-x: hidden;
   -webkit-tap-highlight-color: transparent;
 }
 
