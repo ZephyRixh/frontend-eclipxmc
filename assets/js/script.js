@@ -170,7 +170,7 @@ const Router = {
     const targetRoot = cleanPath.split('/')[1] || '';
 
     if (currentRoot !== targetRoot) {
-      window.location.href = cleanPath;
+      window.location.href = targetRoot ? `/${targetRoot}.html` : '/';
       return;
     }
 

@@ -2769,17 +2769,22 @@ section { padding: 40px 5vw; position: relative; }
 }
 
 /* ━━ MOBILE SIDEBAR ━━ */
-.mobile-nav-bar {
+.mobile-nav-wrapper {
   display: none;
   position: fixed;
-  top: 12px;
-  left: 12px;
-  right: 12px;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 1001;
+  pointer-events: none;
+}
+
+.mobile-nav-bar {
+  display: flex;
+  margin: 12px;
   justify-content: space-between;
   align-items: center;
   pointer-events: none;
-  will-change: transform;
 }
 
 .mobile-nav-toggle {
@@ -3043,8 +3048,8 @@ section { padding: 40px 5vw; position: relative; }
     display: none;
   }
 
-  .mobile-nav-bar {
-    display: flex;
+  .mobile-nav-wrapper {
+    display: block;
   }
 
   .mobile-sidebar-overlay {
