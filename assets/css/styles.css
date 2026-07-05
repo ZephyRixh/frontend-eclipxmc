@@ -539,12 +539,13 @@ section { padding: 40px 5vw; position: relative; }
 @media (max-width: 768px) {
   .hero {
     background: url(../images/background.jpg) center/cover no-repeat;
+    background-position: calc(50% - 15px) center;
   }
 }
 @media (max-width: 480px) {
   .hero {
     background: url(../images/background.jpg) center/cover no-repeat;
-    background-position: center center;
+    background-position: calc(50% - 15px) center;
   }
   .hero::after {
     height: 60px;
