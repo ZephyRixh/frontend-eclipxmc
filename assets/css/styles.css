@@ -64,6 +64,9 @@ body {
   font-size: 14px;
   line-height: 1.7;
   -webkit-tap-highlight-color: transparent;
+}
+
+#page-wrapper {
   overflow-x: hidden;
 }
 
