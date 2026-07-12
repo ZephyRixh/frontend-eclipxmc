@@ -836,12 +836,11 @@ document.addEventListener('DOMContentLoaded', () => {
 function initMobileNavFix() {
   const wrapper = document.querySelector('.mobile-nav-wrapper');
   if (!wrapper) return;
-  wrapper.style.setProperty('position', 'fixed', 'important');
-  wrapper.style.setProperty('top', '0');
-  wrapper.style.setProperty('left', '0');
-  wrapper.style.setProperty('right', '0');
-  wrapper.style.setProperty('z-index', '1001');
-  wrapper.style.setProperty('pointer-events', 'none');
+  // ensure sticky positioning via CSS is respected
+  wrapper.style.setProperty('position', '-webkit-sticky', 'important');
+  wrapper.style.setProperty('position', 'sticky', 'important');
+  wrapper.style.setProperty('top', '0', 'important');
+  wrapper.style.setProperty('z-index', '1001', 'important');
 
   const footerNav = document.querySelector('.footer-nav');
   if (footerNav) {
