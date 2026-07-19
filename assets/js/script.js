@@ -834,18 +834,36 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initMobileNavFix() {
-  const wrapper = document.querySelector('.mobile-nav-wrapper');
+  var wrapper = document.querySelector('.mobile-nav-wrapper');
   if (!wrapper) return;
-  // ensure sticky positioning via CSS is respected
-  wrapper.style.setProperty('position', '-webkit-sticky', 'important');
-  wrapper.style.setProperty('position', 'sticky', 'important');
-  wrapper.style.setProperty('top', '0', 'important');
-  wrapper.style.setProperty('z-index', '1001', 'important');
 
-  const footerNav = document.querySelector('.footer-nav');
+  function stick() {
+    wrapper.style.setProperty('position', 'fixed', 'important');
+    wrapper.style.setProperty('top', '0', 'important');
+    wrapper.style.setProperty('left', '0', 'important');
+    wrapper.style.setProperty('right', '0', 'important');
+    wrapper.style.setProperty('z-index', '1001', 'important');
+  }
+
+  stick();
+
+  var ticking = false;
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      requestAnimationFrame(function () {
+        stick();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+
+  window.addEventListener('resize', stick, { passive: true });
+
+  var footerNav = document.querySelector('.footer-nav');
   if (footerNav) {
     footerNav.style.setProperty('display', 'flex', 'important');
-    Array.from(footerNav.children).forEach(child => {
+    Array.from(footerNav.children).forEach(function (child) {
       if (child.matches && child.matches('ul')) {
         child.style.setProperty('flex', '1', 'important');
         child.style.setProperty('min-width', '0', 'important');
